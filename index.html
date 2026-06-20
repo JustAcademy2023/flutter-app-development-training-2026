@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flutter App Development Training 2026 | JustAcademy Delhi & Online</title>
+  <meta name="description" content="Learn Flutter app development in 2026. Build beautiful iOS & Android apps with Dart. Live training in Delhi and globally online. Real projects, expert mentors, placement support." />
+  <meta name="keywords" content="Flutter Training 2026, Flutter Course Delhi, Flutter App Development, Dart Programming, Cross-Platform Development, JustAcademy Flutter" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="JustAcademy" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Flutter App Development Training 2026 | JustAcademy" />
+  <meta property="og:description" content="Build iOS & Android apps with Flutter and Dart. Live training in Delhi and globally online." />
+  <meta property="og:url" content="https://www.justacademy.co/course-detail/flutter-training" />
+  <meta property="og:site_name" content="JustAcademy" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Flutter App Development Training 2026 | JustAcademy" />
+  <meta name="twitter:description" content="Build iOS & Android apps with Flutter and Dart. Live training in Delhi and globally online." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Flutter App Development Training 2026",
+    "description": "Comprehensive Flutter training covering Dart, widgets, state management, REST APIs, Firebase, animations, and deployment to iOS and Android.",
+    "provider": { "@type": "Organization", "name": "JustAcademy", "sameAs": "https://www.justacademy.co" },
+    "url": "https://www.justacademy.co/course-detail/flutter-training",
+    "hasCourseInstance": [
+      { "@type": "CourseInstance", "name": "Flutter Training Online Global", "courseMode": "Online" },
+      { "@type": "CourseInstance", "name": "Flutter Training Delhi Online", "courseMode": "Online" }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --sky: #54c5f8;
+      --sky2: #29b6f6;
+      --deep: #0175c2;
+      --flutter: #02569b;
+      --dart: #00b4ab;
+      --white: #ffffff;
+      --ink: #0a1628;
+      --ink2: #142035;
+
+      /* light surface palette — flips the dark convention */
+      --bg:       #f0f8ff;
+      --bg2:      #e3f2fd;
+      --bg3:      #ffffff;
+      --card:     #ffffff;
+      --card-bdr: rgba(2,86,155,.12);
+      --card-bdr-h: rgba(2,86,155,.35);
+      --t1:       #0a1628;
+      --t2:       #334e6e;
+      --t3:       #7b97b8;
+
+      --grad:  linear-gradient(135deg, #54c5f8 0%, #0175c2 60%, #02569b 100%);
+      --grad2: linear-gradient(135deg, #54c5f8 0%, #00b4ab 100%);
+      --grad3: linear-gradient(135deg, #0175c2 0%, #02569b 100%);
+      --shadow: 0 2px 20px rgba(2,86,155,.1);
+      --shadow-h: 0 8px 40px rgba(2,86,155,.2);
+
+      --font: 'Lexend', sans-serif;
+      --mono: 'IBM Plex Mono', monospace;
+      --r: 20px;
+      --rs: 12px;
+      --ease: cubic-bezier(.4,0,.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--t1);
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg2); }
+    ::-webkit-scrollbar-thumb { background: var(--sky2); border-radius: 3px; }
+
+    /* ── LAYOUT ── */
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .sec { padding: 96px 0; }
+    .sec-alt { background: var(--bg2); }
+
+    /* ── REVEAL ── */
+    .rv { opacity: 0; transform: translateY(24px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+    .rv.on { opacity: 1; transform: none; }
+    .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; }
+    .d3 { transition-delay: .24s; } .d4 { transition-delay: .32s; }
+
+    /* ── EYEBROW ── */
+    .eye {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: .7rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--deep); background: rgba(1,117,194,.08);
+      border: 1.5px solid rgba(1,117,194,.2);
+      padding: 5px 14px; border-radius: 100px; margin-bottom: 18px;
+    }
+    .eye::before { content: '◉'; font-size: .55rem; color: var(--sky2); }
+
+    h2.ttl {
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      font-weight: 800; line-height: 1.12; letter-spacing: -.02em; margin-bottom: 14px;
+    }
+    h2.ttl em { font-style: normal; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sub { color: var(--t2); font-size: 1rem; max-width: 560px; margin-bottom: 52px; line-height: 1.8; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(240,248,255,.92); backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(2,86,155,.1); padding: 14px 0;
+      transition: box-shadow .3s;
+    }
+    .nav-row { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: var(--font); font-size: .95rem; font-weight: 800; text-decoration: none; color: var(--flutter); letter-spacing: -.01em; display: flex; align-items: center; gap: 8px; }
+    .logo-flutter { font-size: 1.2rem; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--grad3); color: #fff; font-family: var(--font);
+      font-size: .82rem; font-weight: 700; padding: 9px 22px;
+      border-radius: 100px; text-decoration: none;
+      transition: all .25s; box-shadow: 0 4px 16px rgba(2,86,155,.3);
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(2,86,155,.45); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding-top: 80px; position: relative; overflow: hidden;
+      background:
+        radial-gradient(ellipse 110% 80% at 50% -10%, #b3e5fc 0%, transparent 55%),
+        radial-gradient(ellipse 60% 50% at 90% 60%, rgba(0,180,171,.15) 0%, transparent 55%),
+        var(--bg);
+    }
+
+    /* sky horizon sweep */
+    .hero-sky {
+      position: absolute; top: 0; left: 0; right: 0; height: 52%;
+      background: linear-gradient(180deg, #e1f5fe 0%, #f0f8ff 100%);
+      pointer-events: none; z-index: 0;
+    }
+    /* blueprint grid on right */
+    .hero-blueprint {
+      position: absolute; top: 0; right: 0; width: 55%; height: 100%;
+      background-image:
+        linear-gradient(rgba(1,117,194,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(1,117,194,.07) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to left, rgba(0,0,0,.5) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* floating phone mockup shapes */
+    .hero-device {
+      position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
+      width: 240px; z-index: 2; pointer-events: none;
+    }
+    .phone-frame {
+      width: 180px; height: 320px; border-radius: 36px;
+      background: linear-gradient(155deg, #ffffff 0%, #e3f2fd 100%);
+      border: 2px solid rgba(2,86,155,.18);
+      box-shadow: 0 24px 64px rgba(2,86,155,.2), 0 4px 16px rgba(0,0,0,.08);
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center;
+      padding: 24px 16px 16px;
+    }
+    .phone-notch { width: 60px; height: 8px; background: var(--ink2); border-radius: 4px; margin-bottom: 16px; }
+    .phone-widget {
+      width: 100%; border-radius: 14px; padding: 12px;
+      margin-bottom: 8px; font-family: var(--mono); font-size: .62rem;
+    }
+    .pw-blue { background: rgba(1,117,194,.1); border: 1px solid rgba(1,117,194,.2); color: var(--deep); }
+    .pw-teal { background: rgba(0,180,171,.1); border: 1px solid rgba(0,180,171,.2); color: var(--dart); }
+    .pw-sky  { background: rgba(84,197,248,.12); border: 1px solid rgba(84,197,248,.25); color: var(--sky2); }
+    .pw-label { font-weight: 500; margin-bottom: 2px; }
+    .pw-bar { height: 4px; border-radius: 2px; background: var(--grad); margin-top: 6px; }
+    .phone-home-indicator { width: 48px; height: 4px; background: rgba(2,86,155,.2); border-radius: 2px; margin-top: auto; }
+    @media(max-width:900px){ .hero-device{ display:none; } }
+
+    .hero-content { position: relative; z-index: 2; max-width: 640px; }
+    .hero-chip {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--mono); font-size: .75rem; color: var(--deep);
+      background: rgba(1,117,194,.08); border: 1.5px solid rgba(1,117,194,.2);
+      padding: 7px 18px; border-radius: 100px; margin-bottom: 28px;
+    }
+    .chip-icon { font-size: 1rem; }
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800;
+      line-height: 1.06; letter-spacing: -.035em; margin-bottom: 20px; color: var(--ink);
+    }
+    .h1-accent { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { font-size: 1.1rem; color: var(--t2); max-width: 500px; margin-bottom: 36px; line-height: 1.8; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 56px; }
+
+    .btn-prim {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--grad3); color: #fff;
+      font-family: var(--font); font-size: .92rem; font-weight: 700;
+      padding: 15px 32px; border-radius: 100px; text-decoration: none;
+      transition: all .28s var(--ease); box-shadow: 0 8px 24px rgba(2,86,155,.35);
+    }
+    .btn-prim:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(2,86,155,.5); }
+    .btn-sec {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: #fff; border: 1.5px solid rgba(2,86,155,.25);
+      color: var(--flutter); font-family: var(--font); font-size: .92rem; font-weight: 700;
+      padding: 15px 32px; border-radius: 100px; text-decoration: none;
+      transition: all .28s var(--ease); box-shadow: var(--shadow);
+    }
+    .btn-sec:hover { border-color: var(--deep); transform: translateY(-3px); box-shadow: var(--shadow-h); }
+
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 36px; padding-top: 36px; border-top: 1.5px solid rgba(2,86,155,.12); }
+    .sv { font-size: 1.9rem; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sl { font-family: var(--mono); font-size: .68rem; color: var(--t3); text-transform: uppercase; letter-spacing: .1em; margin-top: 2px; }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card); border: 1.5px solid var(--card-bdr);
+      border-radius: var(--r); padding: 30px;
+      transition: all .32s var(--ease); box-shadow: var(--shadow);
+    }
+    .card:hover { border-color: var(--card-bdr-h); transform: translateY(-5px); box-shadow: var(--shadow-h); }
+    .ci { width: 50px; height: 50px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 18px; background: linear-gradient(135deg, rgba(84,197,248,.15), rgba(1,117,194,.08)); border: 1px solid rgba(1,117,194,.12); }
+    .ct { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--ink); }
+    .cx { color: var(--t2); font-size: .88rem; line-height: 1.75; }
+
+    /* ── SECTION 1: WHAT ── */
+    .g4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 20px; }
+
+    /* ── SECTION 2: WHY FLUTTER ── */
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    @media(max-width:800px){ .why-grid{ grid-template-columns:1fr; gap:36px; } }
+    .why-visual {
+      background: var(--card); border: 1.5px solid var(--card-bdr);
+      border-radius: var(--r); padding: 32px; box-shadow: var(--shadow);
+      font-family: var(--mono); font-size: .8rem;
+    }
+    .code-header {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 20px;
+      padding-bottom: 14px; border-bottom: 1px solid var(--card-bdr);
+    }
+    .dot-r { width: 10px; height: 10px; border-radius: 50%; background: #ff5f57; }
+    .dot-y { width: 10px; height: 10px; border-radius: 50%; background: #febc2e; }
+    .dot-g { width: 10px; height: 10px; border-radius: 50%; background: #28c840; }
+    .code-title { color: var(--t3); font-size: .7rem; margin-left: 4px; }
+    .code-line { line-height: 1.9; }
+    .c-kw  { color: var(--deep); font-weight: 500; }
+    .c-cls { color: #e91e63; }
+    .c-str { color: var(--dart); }
+    .c-cmt { color: var(--t3); }
+    .c-fn  { color: var(--sky2); }
+    .c-ind { padding-left: 1.4em; }
+    .c-ind2 { padding-left: 2.8em; }
+    .why-points { display: flex; flex-direction: column; gap: 20px; }
+    .wp {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--card); border: 1.5px solid var(--card-bdr);
+      border-radius: var(--rs); padding: 20px; box-shadow: var(--shadow);
+      transition: all .3s;
+    }
+    .wp:hover { border-color: var(--card-bdr-h); transform: translateX(4px); }
+    .wp-num {
+      width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+      background: var(--grad3); display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: .72rem; font-weight: 500; color: #fff;
+    }
+    .wp-title { font-size: .95rem; font-weight: 700; margin-bottom: 4px; color: var(--ink); }
+    .wp-text  { color: var(--t2); font-size: .85rem; line-height: 1.65; }
+
+    /* ── SECTION 3: ROADMAP ── */
+    .rm-outer { display: flex; justify-content: center; }
+    .rm-wrap  { display: flex; flex-direction: column; align-items: center; }
+    .rm-node {
+      min-width: 240px; padding: 14px 28px; text-align: center;
+      background: var(--card); border: 1.5px solid var(--card-bdr);
+      border-radius: var(--rs); font-family: var(--mono); font-size: .82rem; font-weight: 500;
+      transition: all .3s; cursor: default; opacity: 0; transform: translateY(14px);
+      box-shadow: var(--shadow); color: var(--t1);
+    }
+    .rm-node:hover { border-color: var(--deep); color: var(--deep); background: rgba(1,117,194,.05); transform: scale(1.03); }
+    .rm-conn { width: 2px; height: 26px; background: linear-gradient(to bottom, rgba(1,117,194,.6), rgba(1,117,194,.1)); position: relative; }
+    .rm-conn::after { content: '▼'; position: absolute; bottom: -7px; left: 50%; transform: translateX(-50%); font-size: .6rem; color: var(--sky2); }
+
+    /* ── SECTION 4: TECH ── */
+    .tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); gap: 14px; }
+    .tp {
+      background: var(--card); border: 1.5px solid var(--card-bdr);
+      border-radius: var(--rs); padding: 20px 12px; text-align: center;
+      transition: all .3s; cursor: default; box-shadow: var(--shadow);
+    }
+    .tp:hover { border-color: var(--card-bdr-h); transform: translateY(-4px); box-shadow: var(--shadow-h); }
+    .te { font-size: 1.75rem; margin-bottom: 8px; }
+    .tn { font-family: var(--mono); font-size: .75rem; font-weight: 500; color: var(--ink); }
+    .tr { font-size: .67rem; color: var(--t3); margin-top: 3px; }
+
+    /* ── SECTION 5: PROJECTS ── */
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); gap: 22px; }
+    .proj {
+      background: var(--card); border: 1.5px solid var(--card-bdr);
+      border-radius: var(--r); padding: 30px;
+      transition: all .32s var(--ease); box-shadow: var(--shadow); position: relative; overflow: hidden;
+    }
+    .proj::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease);
+    }
+    .proj:hover { border-color: var(--card-bdr-h); transform: translateY(-5px); box-shadow: var(--shadow-h); }
+    .proj:hover::after { transform: scaleX(1); }
+    .pbadge {
+      display: inline-block; font-family: var(--mono); font-size: .68rem; font-weight: 500;
+      color: var(--deep); background: rgba(1,117,194,.08); border: 1px solid rgba(1,117,194,.18);
+      padding: 3px 10px; border-radius: 6px; margin-bottom: 12px;
+    }
+    .pt { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--ink); }
+    .pd { color: var(--t2); font-size: .86rem; line-height: 1.7; }
+    .ptags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+    .ptags span { background: var(--bg2); color: var(--t3); font-size: .68rem; font-family: var(--mono); padding: 3px 8px; border-radius: 5px; }
+
+    /* ── SECTION 6: CAREER ── */
+    .career-row { display: flex; gap: 0; align-items: stretch; flex-wrap: wrap; }
+    .career-step {
+      flex: 1; min-width: 150px; background: var(--card);
+      border: 1.5px solid var(--card-bdr); padding: 26px 20px;
+      position: relative; transition: all .3s; box-shadow: var(--shadow);
+    }
+    .career-step:first-child { border-radius: var(--r) 0 0 var(--r); }
+    .career-step:last-child  { border-radius: 0 var(--r) var(--r) 0; }
+    .career-step:not(:first-child) { border-left: none; }
+    .career-step:hover { background: rgba(1,117,194,.04); z-index: 1; border-color: var(--card-bdr-h); }
+    .cs-arrow {
+      position: absolute; right: -14px; top: 50%; transform: translateY(-50%);
+      width: 26px; height: 26px; border-radius: 50%; background: var(--bg2);
+      border: 1.5px solid var(--card-bdr); display: flex; align-items: center;
+      justify-content: center; font-size: .6rem; color: var(--sky2); z-index: 2;
+    }
+    .career-step:last-child .cs-arrow { display: none; }
+    .cs-level {
+      display: inline-block; font-family: var(--mono); font-size: .62rem; font-weight: 500;
+      letter-spacing: .08em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; margin-bottom: 8px;
+    }
+    .lv-e { background: rgba(16,185,129,.1); color: #059669; }
+    .lv-m { background: rgba(1,117,194,.1); color: var(--deep); }
+    .lv-s { background: rgba(0,180,171,.1); color: var(--dart); }
+    .lv-l { background: rgba(251,191,36,.1); color: #b45309; }
+    .cs-role { font-size: .92rem; font-weight: 700; margin-bottom: 6px; color: var(--ink); }
+    .cs-desc { color: var(--t2); font-size: .78rem; line-height: 1.65; }
+    @media(max-width:700px){
+      .career-row { flex-direction: column; }
+      .career-step:first-child { border-radius: var(--r) var(--r) 0 0; }
+      .career-step:last-child  { border-radius: 0 0 var(--r) var(--r); }
+      .career-step:not(:first-child) { border-left: 1.5px solid var(--card-bdr); border-top: none; }
+      .cs-arrow { right: 50%; transform: translateX(50%); bottom: -14px; top: auto; }
+    }
+
+    /* ── SECTION 7: BLOG ── */
+    .blog-card {
+      background: var(--card); border: 1.5px solid var(--card-bdr);
+      border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow);
+      display: grid; grid-template-columns: 1fr 260px;
+    }
+    @media(max-width:760px){ .blog-card { grid-template-columns: 1fr; } .blog-aside { display: none; } }
+    .blog-stripe { position: relative; }
+    .blog-stripe::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--grad); }
+    .blog-main { padding: 44px; }
+    .blog-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--mono); font-size: .7rem; color: var(--deep);
+      background: rgba(1,117,194,.08); border: 1px solid rgba(1,117,194,.18);
+      padding: 4px 12px; border-radius: 6px; margin-bottom: 16px;
+    }
+    .blog-h { font-size: clamp(1.15rem,2.5vw,1.55rem); font-weight: 800; line-height: 1.28; margin-bottom: 12px; color: var(--ink); }
+    .blog-p { color: var(--t2); font-size: .91rem; line-height: 1.8; margin-bottom: 18px; }
+    .blog-meta { font-family: var(--mono); font-size: .7rem; color: var(--t3); margin-bottom: 22px; }
+    .blog-aside {
+      background: linear-gradient(160deg, #e3f2fd 0%, #f0f8ff 100%);
+      border-left: 1.5px solid var(--card-bdr);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 36px 28px; text-align: center; gap: 14px;
+    }
+    .blog-icon { font-size: 3.8rem; }
+    .blog-aside-tag { font-family: var(--mono); font-size: .68rem; color: var(--t3); }
+
+    /* ── FAQ ── */
+    .faq-stack { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      background: var(--card); border: 1.5px solid var(--card-bdr);
+      border-radius: var(--rs); overflow: hidden; transition: border-color .3s;
+      box-shadow: var(--shadow);
+    }
+    .faq-item.open { border-color: rgba(1,117,194,.35); }
+    .faq-btn {
+      width: 100%; display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 26px; cursor: pointer; background: none; border: none;
+      color: var(--ink); font-family: var(--font); font-size: .92rem; font-weight: 600;
+      text-align: left; transition: color .3s; gap: 16px;
+    }
+    .faq-item.open .faq-btn { color: var(--deep); }
+    .faq-ico {
+      width: 26px; height: 26px; border-radius: 7px; flex-shrink: 0;
+      background: rgba(1,117,194,.08); border: 1px solid rgba(1,117,194,.18);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: .85rem; color: var(--deep);
+      transition: transform .35s, background .3s;
+    }
+    .faq-item.open .faq-ico { transform: rotate(45deg); background: rgba(1,117,194,.15); }
+    .faq-body {
+      max-height: 0; overflow: hidden; padding: 0 26px;
+      color: var(--t2); font-size: .9rem; line-height: 1.8;
+      transition: max-height .44s var(--ease), padding .35s;
+    }
+    .faq-item.open .faq-body { max-height: 360px; padding: 0 26px 20px; }
+
+    /* ── CTA ── */
+    .cta-sec {
+      background: linear-gradient(135deg, #e3f2fd 0%, #f0f8ff 60%, #e8f5e9 100%);
+      border-top: 1.5px solid rgba(1,117,194,.12); border-bottom: 1.5px solid rgba(1,117,194,.12);
+    }
+    .cta-inner { text-align: center; }
+    .cta-h { font-size: clamp(2rem,4vw,3rem); font-weight: 900; letter-spacing: -.025em; margin-bottom: 14px; color: var(--ink); }
+    .cta-h em { font-style: normal; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .cta-sub { color: var(--t2); font-size: 1rem; margin-bottom: 38px; }
+    .cta-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+    .cta-note { margin-top: 22px; font-family: var(--mono); font-size: .74rem; color: var(--t3); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink); color: rgba(255,255,255,.7);
+      padding: 64px 0 32px;
+    }
+    .ft-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 44px; }
+    @media(max-width:700px){ .ft-grid{ grid-template-columns:1fr; gap:32px; } }
+    .ft-brand { font-family: var(--font); font-size: 1rem; font-weight: 800; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .ft-desc { color: rgba(255,255,255,.5); font-size: .84rem; line-height: 1.7; max-width: 280px; margin-bottom: 22px; }
+    .ft-ch { font-family: var(--mono); font-size: .68rem; font-weight: 500; color: rgba(255,255,255,.35); text-transform: uppercase; letter-spacing: .12em; margin-bottom: 14px; }
+    .ft-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .ft-links a { color: rgba(255,255,255,.55); text-decoration: none; font-size: .85rem; transition: color .25s; }
+    .ft-links a:hover { color: var(--sky); }
+    .ft-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.1); }
+    .ft-copy { color: rgba(255,255,255,.3); font-size: .78rem; }
+    .ft-tag { font-family: var(--mono); font-size: .7rem; color: rgba(255,255,255,.3); }
+    .ft-tag span { color: var(--sky); }
+
+    @media(max-width:768px){ .sec{ padding: 64px 0; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav role="navigation" aria-label="Main navigation">
+  <div class="wrap">
+    <div class="nav-row">
+      <a href="#" class="logo" aria-label="JustAcademy Flutter">
+        <span class="logo-flutter">💙</span> JustAcademy Flutter
+      </a>
+      <a href="https://www.justacademy.co/register-for-course-demo" class="nav-cta" target="_blank" rel="noopener noreferrer">Free Demo →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top" role="banner">
+  <div class="hero-sky" aria-hidden="true"></div>
+  <div class="hero-blueprint" aria-hidden="true"></div>
+
+  <!-- Floating phone mockup -->
+  <div class="hero-device" aria-hidden="true">
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <div class="phone-widget pw-blue">
+        <div class="pw-label">MyApp · Flutter</div>
+        <div class="pw-bar" style="width:85%;"></div>
+      </div>
+      <div class="phone-widget pw-teal">
+        <div class="pw-label">StatefulWidget</div>
+        <div class="pw-bar" style="width:65%;background:var(--grad2);"></div>
+      </div>
+      <div class="phone-widget pw-sky">
+        <div class="pw-label">Firebase Sync ✓</div>
+        <div class="pw-bar" style="width:100%;background:var(--grad);"></div>
+      </div>
+      <div class="phone-home-indicator"></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="hero-chip">
+        <span class="chip-icon">💙</span>
+        flutter · dart · cross-platform · 2026
+      </div>
+      <h1>
+        Build Apps.<br/>
+        <span class="h1-accent">Ship Everywhere.</span>
+      </h1>
+      <p class="hero-sub">Learn Flutter and Dart from scratch — write one codebase, deploy beautiful native apps to iOS, Android, Web, and Desktop. Live training in Delhi and globally online.</p>
+      <div class="hero-btns">
+        <a href="https://www.justacademy.co/course-detail/flutter-training" class="btn-prim" target="_blank" rel="noopener noreferrer">🌐 Global Course</a>
+        <a href="https://www.justacademy.co/course-detail/delhi/flutter-training-in-delhi" class="btn-sec" target="_blank" rel="noopener noreferrer">📍 Delhi Course</a>
+      </div>
+      <div class="hero-stats" aria-label="Course highlights">
+        <div><div class="sv">1</div><div class="sl">Codebase</div></div>
+        <div><div class="sv">4+</div><div class="sl">Platforms</div></div>
+        <div><div class="sv">Live</div><div class="sl">Sessions</div></div>
+        <div><div class="sv">Real</div><div class="sl">Apps Built</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SECTION 1: WHAT IS FLUTTER -->
+<section class="sec" id="about" aria-labelledby="about-h">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eye">Foundation</span>
+      <h2 class="ttl" id="about-h">What is <em>Flutter</em>?</h2>
+      <p class="sub">Flutter is Google's open-source UI toolkit for building natively compiled, beautiful applications for mobile, web, and desktop from a single Dart codebase.</p>
+    </div>
+    <div class="g4">
+      <article class="card rv d1">
+        <div class="ci">📱</div>
+        <h3 class="ct">Cross-Platform Native</h3>
+        <p class="cx">Write once, run natively on iOS, Android, Web, Windows, macOS, and Linux. Flutter compiles to native ARM code — no JavaScript bridge, no performance compromise.</p>
+      </article>
+      <article class="card rv d2">
+        <div class="ci">🎨</div>
+        <h3 class="ct">Pixel-Perfect UI</h3>
+        <p class="cx">Flutter's own rendering engine (Skia / Impeller) draws every pixel. Build custom animations, glassmorphism cards, and unique UI that looks identical on every device.</p>
+      </article>
+      <article class="card rv d3">
+        <div class="ci">⚡</div>
+        <h3 class="ct">Hot Reload</h3>
+        <p class="cx">See code changes reflected in under a second without losing app state. Flutter's hot reload makes UI iteration and debugging dramatically faster than any other mobile framework.</p>
+      </article>
+      <article class="card rv d4">
+        <div class="ci">🔥</div>
+        <h3 class="ct">Backed by Google</h3>
+        <p class="cx">Flutter powers Google Pay, BMW, Alibaba, eBay Motors, and thousands of production apps. It is one of the most starred repositories on GitHub and growing rapidly in enterprise.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: WHY FLUTTER -->
+<section class="sec sec-alt" id="why" aria-labelledby="why-h">
+  <div class="wrap">
+    <div class="why-grid">
+      <div class="rv">
+        <span class="eye">Code Sample</span>
+        <h2 class="ttl" id="why-h">Elegant code.<br/><em>Powerful results.</em></h2>
+        <p class="sub" style="margin-bottom:36px;">Dart is clean, fast, and beginner-friendly. Flutter's widget tree makes UIs composable and readable from your very first class.</p>
+        <div class="why-points">
+          <div class="wp rv d1">
+            <div class="wp-num">01</div>
+            <div>
+              <div class="wp-title">One language, every platform</div>
+              <div class="wp-text">Dart runs on mobile, web, server, and desktop. No switching between Swift, Kotlin, and JavaScript.</div>
+            </div>
+          </div>
+          <div class="wp rv d2">
+            <div class="wp-num">02</div>
+            <div>
+              <div class="wp-title">Rich widget library</div>
+              <div class="wp-text">Material 3 and Cupertino widgets out of the box. Combine them or build your own from scratch.</div>
+            </div>
+          </div>
+          <div class="wp rv d3">
+            <div class="wp-num">03</div>
+            <div>
+              <div class="wp-title">Strong job market in 2026</div>
+              <div class="wp-text">Companies hiring Flutter developers include Google, Razorpay, PhonePe, CRED, and hundreds of startups globally.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why-visual rv d2" role="img" aria-label="Flutter Dart code sample">
+        <div class="code-header">
+          <div class="dot-r"></div><div class="dot-y"></div><div class="dot-g"></div>
+          <span class="code-title">main.dart — Flutter App</span>
+        </div>
+        <div class="code-line"><span class="c-kw">import</span> <span class="c-str">'package:flutter/material.dart'</span>;</div>
+        <div class="code-line">&nbsp;</div>
+        <div class="code-line"><span class="c-kw">void</span> <span class="c-fn">main</span>() {</div>
+        <div class="code-line c-ind"><span class="c-fn">runApp</span>(<span class="c-kw">const</span> <span class="c-cls">MyApp</span>());</div>
+        <div class="code-line">}</div>
+        <div class="code-line">&nbsp;</div>
+        <div class="code-line"><span class="c-kw">class</span> <span class="c-cls">MyApp</span> <span class="c-kw">extends</span> <span class="c-cls">StatelessWidget</span> {</div>
+        <div class="code-line c-ind"><span class="c-kw">const</span> <span class="c-cls">MyApp</span>({<span class="c-kw">super</span>.key});</div>
+        <div class="code-line">&nbsp;</div>
+        <div class="code-line c-ind"><span class="c-cmt">@override</span></div>
+        <div class="code-line c-ind"><span class="c-cls">Widget</span> <span class="c-fn">build</span>(<span class="c-cls">BuildContext</span> context) {</div>
+        <div class="code-line c-ind2"><span class="c-kw">return</span> <span class="c-cls">MaterialApp</span>(</div>
+        <div class="code-line c-ind2" style="padding-left:4.2em;">title: <span class="c-str">'My Flutter App'</span>,</div>
+        <div class="code-line c-ind2" style="padding-left:4.2em;">theme: <span class="c-cls">ThemeData</span>(</div>
+        <div class="code-line" style="padding-left:5.6em;">colorScheme: <span class="c-cls">ColorScheme</span>.<span class="c-fn">fromSeed</span>(</div>
+        <div class="code-line" style="padding-left:7em;">seedColor: <span class="c-cls">Colors</span>.blue,</div>
+        <div class="code-line" style="padding-left:5.6em;">),</div>
+        <div class="code-line c-ind2" style="padding-left:4.2em;">home: <span class="c-kw">const</span> <span class="c-cls">HomeScreen</span>(),</div>
+        <div class="code-line c-ind2">);</div>
+        <div class="code-line c-ind">}</div>
+        <div class="code-line">}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: ROADMAP -->
+<section class="sec" id="roadmap" aria-labelledby="rm-h">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;">
+      <span class="eye">Curriculum</span>
+      <h2 class="ttl" id="rm-h">Flutter <em>Learning Roadmap</em></h2>
+      <p class="sub" style="margin:0 auto 52px;">A structured path from Dart basics to deploying full-featured apps on the App Store and Play Store.</p>
+    </div>
+    <div class="rm-outer rv">
+      <div class="rm-wrap" role="list" aria-label="Flutter learning roadmap">
+        <div class="rm-node" role="listitem">🎯 Dart Programming Basics</div>
+        <div class="rm-conn" aria-hidden="true"></div>
+        <div class="rm-node" role="listitem">💙 Flutter Setup &amp; Architecture</div>
+        <div class="rm-conn" aria-hidden="true"></div>
+        <div class="rm-node" role="listitem">🧩 Widgets — Stateless &amp; Stateful</div>
+        <div class="rm-conn" aria-hidden="true"></div>
+        <div class="rm-node" role="listitem">🗺️ Navigation &amp; Routing</div>
+        <div class="rm-conn" aria-hidden="true"></div>
+        <div class="rm-node" role="listitem">🔄 State Management (Provider / Bloc)</div>
+        <div class="rm-conn" aria-hidden="true"></div>
+        <div class="rm-node" role="listitem">🔌 REST APIs &amp; HTTP</div>
+        <div class="rm-conn" aria-hidden="true"></div>
+        <div class="rm-node" role="listitem">🔥 Firebase Integration</div>
+        <div class="rm-conn" aria-hidden="true"></div>
+        <div class="rm-node" role="listitem">🎨 Animations &amp; Custom UI</div>
+        <div class="rm-conn" aria-hidden="true"></div>
+        <div class="rm-node" role="listitem">💾 Local Storage — Hive / SQLite</div>
+        <div class="rm-conn" aria-hidden="true"></div>
+        <div class="rm-node" role="listitem">🧪 Testing — Unit &amp; Widget Tests</div>
+        <div class="rm-conn" aria-hidden="true"></div>
+        <div class="rm-node" role="listitem">🚀 App Store &amp; Play Store Deployment</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: TECH STACK -->
+<section class="sec sec-alt" id="stack" aria-labelledby="stack-h">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eye">Tools &amp; Tech</span>
+      <h2 class="ttl" id="stack-h">What You'll <em>Work With</em></h2>
+      <p class="sub">Every technology, package, and tool covered in the JustAcademy Flutter training program.</p>
+    </div>
+    <div class="tech-grid">
+      <div class="tp rv d1"><div class="te">💙</div><div class="tn">Flutter</div><div class="tr">UI Framework</div></div>
+      <div class="tp rv d1"><div class="te">🎯</div><div class="tn">Dart</div><div class="tr">Language</div></div>
+      <div class="tp rv d2"><div class="te">🔥</div><div class="tn">Firebase</div><div class="tr">Backend</div></div>
+      <div class="tp rv d2"><div class="te">📦</div><div class="tn">Provider</div><div class="tr">State Mgmt</div></div>
+      <div class="tp rv d3"><div class="te">🔷</div><div class="tn">Bloc</div><div class="tr">State Mgmt</div></div>
+      <div class="tp rv d3"><div class="te">🔌</div><div class="tn">REST APIs</div><div class="tr">HTTP / Dio</div></div>
+      <div class="tp rv d4"><div class="te">💾</div><div class="tn">Hive / SQLite</div><div class="tr">Local DB</div></div>
+      <div class="tp rv d4"><div class="te">🔀</div><div class="tn">Git &amp; GitHub</div><div class="tr">Version Control</div></div>
+      <div class="tp rv d1"><div class="te">🛠️</div><div class="tn">VS Code</div><div class="tr">IDE</div></div>
+      <div class="tp rv d2"><div class="te">🍎</div><div class="tn">iOS Deploy</div><div class="tr">App Store</div></div>
+      <div class="tp rv d3"><div class="te">🤖</div><div class="tn">Android Deploy</div><div class="tr">Play Store</div></div>
+      <div class="tp rv d4"><div class="te">🧪</div><div class="tn">Flutter Test</div><div class="tr">Unit &amp; Widget</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: PROJECTS -->
+<section class="sec" id="projects" aria-labelledby="proj-h">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eye">Portfolio</span>
+      <h2 class="ttl" id="proj-h">Apps You'll <em>Actually Build</em></h2>
+      <p class="sub">Finish the course with a portfolio of real, deployable Flutter apps that employers and clients can try on their phones.</p>
+    </div>
+    <div class="proj-grid">
+      <article class="proj rv d1">
+        <div class="pbadge">Beginner</div>
+        <h3 class="pt">Weather App</h3>
+        <p class="pd">Build a location-aware weather app consuming an OpenWeather REST API. Implement beautiful animated weather widgets, dark/light theme toggle, and city search.</p>
+        <div class="ptags"><span>Dart</span><span>HTTP</span><span>Provider</span><span>Animations</span></div>
+      </article>
+      <article class="proj rv d2">
+        <div class="pbadge">Firebase</div>
+        <h3 class="pt">Chat Application</h3>
+        <p class="pd">A real-time messaging app with Firebase Auth, Firestore chat rooms, push notifications, image sharing, and read receipts — just like WhatsApp, built by you.</p>
+        <div class="ptags"><span>Firebase</span><span>Firestore</span><span>FCM</span><span>Bloc</span></div>
+      </article>
+      <article class="proj rv d3">
+        <div class="pbadge">E-Commerce</div>
+        <h3 class="pt">Shopping App</h3>
+        <p class="pd">Full e-commerce app with product catalog, cart, wishlist, Razorpay payment integration, order tracking, and admin panel — production-ready on both platforms.</p>
+        <div class="ptags"><span>REST API</span><span>Riverpod</span><span>Hive</span><span>Razorpay</span></div>
+      </article>
+      <article class="proj rv d1">
+        <div class="pbadge">Social</div>
+        <h3 class="pt">Photo Sharing App</h3>
+        <p class="pd">Instagram-style photo feed with Firebase Storage, camera integration, image filters, likes, comments, user profiles, and infinite scroll — all in Flutter.</p>
+        <div class="ptags"><span>Firebase</span><span>Camera</span><span>Storage</span><span>Bloc</span></div>
+      </article>
+      <article class="proj rv d2">
+        <div class="pbadge">Productivity</div>
+        <h3 class="pt">Task Manager App</h3>
+        <p class="pd">A beautiful local-first task management app with drag-and-drop boards, reminders, recurring tasks, dark mode, and cloud sync using Firebase and Hive.</p>
+        <div class="ptags"><span>SQLite</span><span>Hive</span><span>Firebase</span><span>Provider</span></div>
+      </article>
+      <article class="proj rv d3">
+        <div class="pbadge">Capstone</div>
+        <h3 class="pt">Full-Stack Flutter App</h3>
+        <p class="pd">A capstone project combining REST API backend, Firebase auth, state management, animations, and Play Store / App Store deployment with a live APK to share.</p>
+        <div class="ptags"><span>Flutter</span><span>Firebase</span><span>Bloc</span><span>Deployed</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: CAREER -->
+<section class="sec sec-alt" id="career" aria-labelledby="career-h">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;">
+      <span class="eye">Outcomes</span>
+      <h2 class="ttl" id="career-h">Where Flutter <em>Takes Your Career</em></h2>
+      <p class="sub" style="margin:0 auto 52px;">Flutter developers are among the fastest-hired in mobile engineering. Here is the growth track.</p>
+    </div>
+    <div class="career-row rv" role="list">
+      <div class="career-step" role="listitem">
+        <div class="cs-arrow" aria-hidden="true">▶</div>
+        <span class="cs-level lv-e">Fresher</span>
+        <div class="cs-role">Flutter Intern</div>
+        <div class="cs-desc">Build widgets, fix UI bugs, learn state management patterns under mentorship.</div>
+      </div>
+      <div class="career-step" role="listitem">
+        <div class="cs-arrow" aria-hidden="true">▶</div>
+        <span class="cs-level lv-e">Junior</span>
+        <div class="cs-role">Flutter Developer</div>
+        <div class="cs-desc">Own features end-to-end. API integration, Firebase, Play Store releases.</div>
+      </div>
+      <div class="career-step" role="listitem">
+        <div class="cs-arrow" aria-hidden="true">▶</div>
+        <span class="cs-level lv-m">Mid</span>
+        <div class="cs-role">Senior Flutter Dev</div>
+        <div class="cs-desc">Architect state, design systems, mentor juniors, performance optimisation.</div>
+      </div>
+      <div class="career-step" role="listitem">
+        <div class="cs-arrow" aria-hidden="true">▶</div>
+        <span class="cs-level lv-s">Senior</span>
+        <div class="cs-role">Mobile Tech Lead</div>
+        <div class="cs-desc">Lead mobile squads, define engineering standards, drive cross-platform strategy.</div>
+      </div>
+      <div class="career-step" role="listitem">
+        <span class="cs-level lv-l">Executive</span>
+        <div class="cs-role">Head of Mobile</div>
+        <div class="cs-desc">Own the mobile product roadmap, tooling, and team across iOS, Android &amp; Web.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: BLOG -->
+<section class="sec" id="blog" aria-labelledby="blog-h">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eye">Featured Read</span>
+      <h2 class="ttl" id="blog-h">From Our <em>Blog</em></h2>
+    </div>
+    <div class="blog-card blog-stripe rv">
+      <div class="blog-main">
+        <div class="blog-chip">📖 Practical Guide · June 2026 · Delhi</div>
+        <h3 class="blog-h">Flutter App Development in 2026 — A Practical Guide for Beginners and Developers in Delhi</h3>
+        <p class="blog-p">Everything you need to know about learning Flutter in 2026 — from setting up your first project to publishing on the Play Store. Specifically written for developers in Delhi looking to switch careers or add cross-platform mobile skills.</p>
+        <div class="blog-meta">Published June 20, 2026 · JustAcademy Blog · 13 min read</div>
+        <a href="https://justacademy4.wordpress.com/2026/06/20/flutter-app-development-in-2026-a-practical-guide-for-beginners-and-developers-in-delhi/" class="btn-prim" target="_blank" rel="noopener noreferrer" style="display:inline-flex;">Read the Guide →</a>
+      </div>
+      <div class="blog-aside" aria-hidden="true">
+        <div class="blog-icon">💙</div>
+        <div class="blog-aside-tag">// flutter_delhi_guide_2026.md</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: FAQ -->
+<section class="sec sec-alt" id="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eye">FAQ</span>
+      <h2 class="ttl" id="faq-h">Questions <em>Answered</em></h2>
+      <p class="sub">Everything prospective students ask before joining the Flutter training program.</p>
+    </div>
+    <div class="faq-stack rv" role="list">
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="f1">What is Flutter and why learn it in 2026?<span class="faq-ico">+</span></button>
+        <div class="faq-body" id="f1">Flutter is Google's open-source framework for building cross-platform apps from a single Dart codebase. In 2026, Flutter is the top choice for mobile startups and growing fast in enterprise because it lets teams ship to iOS, Android, Web, and Desktop simultaneously with pixel-perfect UI and near-native performance — drastically reducing development costs and time to market.</div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="f2">Is Flutter better than React Native in 2026?<span class="faq-ico">+</span></button>
+        <div class="faq-body" id="f2">Both are excellent, but Flutter has pulled ahead in several areas: it renders with its own engine (no JavaScript bridge), produces smoother 60/120fps animations, has a more consistent look across platforms, and has seen faster adoption in Indian startups. React Native has a larger npm ecosystem and suits teams with strong JavaScript experience. JustAcademy recommends Flutter for beginners due to its cleaner architecture and faster feedback loop via hot reload.</div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="f3">Do I need to know programming before learning Flutter?<span class="faq-ico">+</span></button>
+        <div class="faq-body" id="f3">Basic programming awareness is helpful, but JustAcademy's Flutter course starts with Dart from scratch. If you have any background in Python, Java, JavaScript, or even basic C, you will pick up Dart in days — it is a modern, clean language designed for productivity. Absolute beginners are welcomed, and the live sessions allow you to ask questions in real time.</div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="f4">What is the salary of a Flutter developer in India in 2026?<span class="faq-ico">+</span></button>
+        <div class="faq-body" id="f4">Entry-level Flutter developers earn ₹4-8 LPA. Mid-level developers with 2-3 years earn ₹12-22 LPA, and senior Flutter engineers and tech leads at product companies earn ₹25-50+ LPA. Companies like CRED, PhonePe, Razorpay, Meesho, and hundreds of funded startups in Delhi NCR and Bangalore actively hire Flutter developers at competitive packages.</div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="f5">How long does it take to learn Flutter?<span class="faq-ico">+</span></button>
+        <div class="faq-body" id="f5">With 2-3 hours of daily practice alongside JustAcademy's live sessions, most students become productive Flutter developers in 3-4 months. The course covers Dart, widgets, state management, Firebase, REST APIs, animations, and deployment — giving you a complete skill set rather than just the basics. The capstone project ensures you have something deployable to show employers.</div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="f6">What state management solution does the course cover?<span class="faq-ico">+</span></button>
+        <div class="faq-body" id="f6">The JustAcademy Flutter course covers both Provider (beginner-friendly and widely used in production) and Bloc (the enterprise-preferred pattern for large apps). You will understand when to use each, how to structure your app around them, and how to migrate from one to another — giving you the flexibility to work in any Flutter codebase you encounter.</div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="f7">Is the Delhi Flutter course online or in-person?<span class="faq-ico">+</span></button>
+        <div class="faq-body" id="f7">Both the Delhi course and the global course are fully online and delivered live via interactive video sessions. You attend from anywhere — Delhi, another city, or internationally — and get real-time interaction with instructors, doubt-clearing sessions, and peer collaboration. The curriculum and projects are identical across both offerings.</div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="f8">Will I be able to publish apps to the App Store and Play Store?<span class="faq-ico">+</span></button>
+        <div class="faq-body" id="f8">Yes. The course includes a dedicated deployment module covering Play Store publishing (APK and AAB, signing, store listing optimisation) and App Store submission (provisioning profiles, TestFlight, App Review guidelines). You will publish your capstone project as a real app, giving you a live link to share with employers — which is far more impressive than a GitHub repository alone.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec cta-sec" id="enroll" aria-labelledby="cta-h">
+  <div class="wrap">
+    <div class="cta-inner rv">
+      <span class="eye">Enroll Today</span>
+      <h2 class="cta-h" id="cta-h">Ready to <em>Build Your First App</em>?</h2>
+      <p class="cta-sub">Live Flutter training, real apps in your portfolio, expert mentors, and placement support. Delhi and global batches open now.</p>
+      <div class="cta-btns">
+        <a href="https://www.justacademy.co/course-detail/flutter-training" class="btn-prim" target="_blank" rel="noopener noreferrer">🌐 Global Course — Join Now</a>
+        <a href="https://www.justacademy.co/course-detail/delhi/flutter-training-in-delhi" class="btn-sec" target="_blank" rel="noopener noreferrer">📍 Delhi Course — Join Now</a>
+      </div>
+      <p class="cta-note">🎓 Free Demo Available · 📄 Download Brochure · 📞 Talk to a Mentor</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-brand">💙 JustAcademy Flutter</div>
+        <p class="ft-desc">India's trusted live training institute for Flutter app development. Real projects, expert instructors, and a community of mobile developers across Delhi and India.</p>
+        <a href="https://www.justacademy.co/register-for-course-demo" class="btn-prim" target="_blank" rel="noopener noreferrer" style="font-size:.82rem;padding:11px 22px;display:inline-flex;margin-top:4px;">Book Free Demo</a>
+      </div>
+      <div>
+        <div class="ft-ch">Quick Links</div>
+        <ul class="ft-links">
+          <li><a href="https://www.justacademy.co/" target="_blank" rel="noopener noreferrer">JustAcademy Website</a></li>
+          <li><a href="https://www.justacademy.co/register-for-course-demo" target="_blank" rel="noopener noreferrer">Free Demo Class</a></li>
+          <li><a href="https://www.justacademy.co/download-general-brochure" target="_blank" rel="noopener noreferrer">Download Brochure</a></li>
+          <li><a href="https://justacademy4.wordpress.com/2026/06/20/flutter-app-development-in-2026-a-practical-guide-for-beginners-and-developers-in-delhi/" target="_blank" rel="noopener noreferrer">Featured Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-ch">Courses</div>
+        <ul class="ft-links">
+          <li><a href="https://www.justacademy.co/course-detail/flutter-training" target="_blank" rel="noopener noreferrer">Flutter Training — Global</a></li>
+          <li><a href="https://www.justacademy.co/course-detail/delhi/flutter-training-in-delhi" target="_blank" rel="noopener noreferrer">Flutter Training — Delhi</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p class="ft-copy">© 2026 JustAcademy. All rights reserved.</p>
+      <p class="ft-tag">built for <span>Flutter developers</span> in Delhi &amp; beyond</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const rvEls = document.querySelectorAll('.rv');
+  const rvObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); rvObs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -28px 0px' });
+  rvEls.forEach(el => rvObs.observe(el));
+
+  // roadmap sequential animation
+  const rmNodes = document.querySelectorAll('.rm-node');
+  const rmObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        rmNodes.forEach((n,i) => setTimeout(() => { n.style.opacity='1'; n.style.transform='none'; }, i*90));
+        rmObs.disconnect();
+      }
+    });
+  }, { threshold: 0.1 });
+  if(rmNodes.length){
+    rmNodes.forEach(n => { n.style.transition='opacity .4s ease, transform .4s ease, border-color .3s, background .3s, color .3s, box-shadow .3s'; });
+    const rmEl = document.querySelector('.rm-outer');
+    if(rmEl) rmObs.observe(rmEl);
+  }
+
+  // faq
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', function(){
+      const item = this.closest('.faq-item');
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-btn').setAttribute('aria-expanded','false'); });
+      if(!open){ item.classList.add('open'); this.setAttribute('aria-expanded','true'); }
+    });
+  });
+
+  // nav shadow
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 4px 24px rgba(2,86,155,.12)' : 'none';
+  }, { passive: true });
+</script>
+</body>
+</html>
